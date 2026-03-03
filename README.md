@@ -12,7 +12,7 @@ Minimal proof-of-concept for Community Voice at the Corner:
 3. GitHub → Settings → Pages
    - Source: Deploy from branch
    - Branch: `main` / root
-4. Your site will appear at:
+4. Access the site here:
    https://YOUR_USERNAME.github.io/cvatc-poc/
 
 ## QR parameters (optional)
