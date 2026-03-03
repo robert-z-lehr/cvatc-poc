@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Community Voice at the Corner</title>
+
+  <link rel="stylesheet" href="./assets/app.css" />
+
+  <!-- Leaflet (map) via CDN -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">CV</div>
+        <div>
+          <h1 class="title">Community Voice at the Corner</h1>
+          <p class="subtitle" id="siteSubtitle">Location-based civic feedback.</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2 class="cardTitle">Share your thoughts</h2>
+
+      <div class="pillRow">
+        <span class="pill" id="anonPill">Anonymous by default</span>
+        <span class="pill muted" id="geoPill">Geo: not set</span>
+      </div>
+
+      <label class="label" for="feedback">Write your feedback</label>
+      <textarea
+        id="feedback"
+        class="textarea"
+        placeholder="What are you noticing here? (safety, accessibility, lighting, timing, heat/shade, maintenance, etc.)"
+        maxlength="1500"
+      ></textarea>
+
+      <div class="row">
+        <button class="btn primary" id="submitBtn" type="button">Submit (demo)</button>
+        <button class="btn" id="copyBtn" type="button">Copy text</button>
+      </div>
+
+      <hr class="divider" />
+
+      <h3 class="cardTitle small">Voice input (transcribe on-device)</h3>
+      <p class="help">
+        Tap “Start dictation” and speak. Transcription appears in the box above.
+        No backend required. Works best in Chrome.
+      </p>
+
+      <div class="row">
+        <button class="btn" id="dictateBtn" type="button">Start dictation</button>
+        <button class="btn danger" id="stopDictateBtn" type="button" disabled>Stop</button>
+      </div>
+
+      <p class="help" id="speechStatus" role="status" aria-live="polite"></p>
+
+      <details class="details">
+        <summary>Privacy note</summary>
+        <div class="detailsBody">
+          <ul class="bullets">
+            <li>Anonymous by default: no name requested on this page.</li>
+            <li>If you enable location, it is used only to anchor map context (device permissions apply).</li>
+            <li>This “Submit” is a demo button in this POC (no server write).</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2 class="cardTitle">Community resources</h2>
+      <p class="help">
+        Expand sections to view nearby resources. The map shows a demo pin at UT campus unless a QR-specific location is provided.
+      </p>
+
+      <details class="details" open>
+        <summary>Map (demo)</summary>
+        <div class="detailsBody">
+          <div class="mapWrap">
+            <div id="map" class="map" aria-label="Map"></div>
+
+            <!-- Optional fallback image (if Leaflet fails) -->
+            <figure class="fallback">
+              <img
+                src="./assets/ut-map-placeholder.jpg"
+                alt="Placeholder map image"
+                loading="lazy"
+              />
+              <figcaption class="help">
+                Placeholder image. Replace <code>assets/ut-map-placeholder.jpg</code> if desired.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="legend" id="legend"></div>
+        </div>
+      </details>
+
+      <details class="details">
+        <summary>Voting locations</summary>
+        <div class="detailsBody" id="votingList"></div>
+      </details>
+
+      <details class="details">
+        <summary>Libraries</summary>
+        <div class="detailsBody" id="librariesList"></div>
+      </details>
+
+      <details class="details">
+        <summary>Parks</summary>
+        <div class="detailsBody" id="parksList"></div>
+      </details>
+
+      <details class="details">
+        <summary>Fire stations</summary>
+        <div class="detailsBody" id="fireList"></div>
+      </details>
+
+      <details class="details">
+        <summary>Other public services</summary>
+        <div class="detailsBody" id="otherList"></div>
+      </details>
+    </section>
+
+    <footer class="footer">
+      <span class="help">
+        POC for demonstration. Add a real submission endpoint (Google Form / Firebase / API) when moving beyond demo.
+      </span>
+    </footer>
+  </main>
+
+  <!-- Leaflet (map) via CDN -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <script src="./assets/data.js"></script>
+  <script src="./assets/app.js"></script>
+</body>
+</html>
