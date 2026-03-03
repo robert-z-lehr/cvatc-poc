@@ -13,7 +13,7 @@ Minimal proof-of-concept for Community Voice at the Corner:
    - Source: Deploy from branch
    - Branch: `main` / root
 4. Access the site here:
-   https://YOUR_USERNAME.github.io/cvatc-poc/
+   [https://YOUR_USERNAME.github.io/cvatc-poc/ ](https://robert-z-lehr.github.io/cvatc-poc/)
 
 ## QR parameters (optional)
 You can generate unique QR codes per intersection/site:
